@@ -91,10 +91,10 @@ GROUP BY DATE_FORMAT(created_at, "%d-%m-%Y")
 	return $result;
 	
 }
-function payments($y){
+function cards($y){
 	
 }
-function paymentsM($m){
+function cardsM($m){
 	
 }
 function yearsL(){
@@ -142,9 +142,9 @@ return $inC['name'];
 //  print_r(expensesCat('2020')) ;
 
 
-function paymentF($y){
+function cardF($y){
 	include('admin/db.php');
-	$statement = $pdo->prepare('SELECT DATE_FORMAT(created_at, "%M-%Y") AS Month, DATE_FORMAT(created_at, "%m") AS MonthN, DATE_FORMAT(created_at, "%Y") AS MonthY,SUM(amount) AS amount, COUNT(*) AS rowV FROM payment
+	$statement = $pdo->prepare('SELECT DATE_FORMAT(created_at, "%M-%Y") AS Month, DATE_FORMAT(created_at, "%m") AS MonthN, DATE_FORMAT(created_at, "%Y") AS MonthY,SUM(amount) AS amount, COUNT(*) AS rowV FROM card
 		WHERE YEAR(date(created_at))="'.$y.'"
 GROUP BY DATE_FORMAT(created_at, "%m-%Y") 
 ');
@@ -154,9 +154,9 @@ GROUP BY DATE_FORMAT(created_at, "%m-%Y")
 	
 }
 
-function paymentM($y,$m){
+function cardM($y,$m){
 	include('admin/db.php');
-	$statement = $pdo->prepare('SELECT DATE_FORMAT(created_at, "%d") AS DateV,SUM(amount) AS amount,  COUNT(*) AS rowV FROM payment
+	$statement = $pdo->prepare('SELECT DATE_FORMAT(created_at, "%d") AS DateV,SUM(amount) AS amount,  COUNT(*) AS rowV FROM card
 		WHERE YEAR(date(created_at))="'.$y.'"  AND MONTH(date(created_at))="'.$m.'"
 GROUP BY DATE_FORMAT(created_at, "%d-%m-%Y") 
 ');

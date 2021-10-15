@@ -329,7 +329,7 @@ $accounts = $stmt->fetch();
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="index.php">Payment Types</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="index.php">card Types</a>
         <!-- Form -->
        <form method="GET" action="findAccounts.php" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -416,8 +416,8 @@ if($accounts['image']==""){
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Payments</a></li>
-                  <li class="breadcrumb-item"><a href="#">Payment Types</a></li>
+                  <li class="breadcrumb-item"><a href="#">cards</a></li>
+                  <li class="breadcrumb-item"><a href="#">card Types</a></li>
                 </ol>
               </nav>
             </div>
@@ -656,7 +656,7 @@ $(document).ready(function(){
     "serverSide":true,
     "order":[],
     "ajax":{
-      url:"admin/fetch_paymentType.php",
+      url:"admin/fetch_cardType.php",
       type:"POST"
     },
       dom: 'Bfrtip',

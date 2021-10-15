@@ -34,12 +34,12 @@ FROM income
    WHERE 
    income.con_id='".$x."'
 UNION ALL
-SELECT payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE 
-   payment.con_id='".$x."' ");
+   card.con_id='".$x."' ");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
@@ -56,12 +56,12 @@ FROM income
    WHERE 
    income.con_id='".$_POST['id']."'
 UNION ALL
-SELECT payment.con_id AS con_id, payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at created_at
-FROM payment
+SELECT card.con_id AS con_id, card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE 
-   (payment.con_id='".$_POST['id']."') ";
+   (card.con_id='".$_POST['id']."') ";
 if(isset($_POST["search"]["value"]))
 {
 	$query .= 'AND 
@@ -93,7 +93,7 @@ if ($row["type"]=='in') {
 	 $sub_array[] = getTypeV($row['ptype'])."<br>".$row['created_at'];
 }else{
 
-	 $sub_array[] = '<span class="text-success">payment<br>'.$row['created_at']."</span>";
+	 $sub_array[] = '<span class="text-success">card<br>'.$row['created_at']."</span>";
 }
 	 $sub_array[] = "<span style='float:right'>".number_format($row['amount'],2,",",".")."</span>";
 	// $sub_array[] = $row["last_name"];

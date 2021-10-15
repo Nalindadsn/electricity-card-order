@@ -188,13 +188,13 @@ FROM income
    income.con_id='".$_POST['acc_id']."' AND
    income.created_at<='".$created_atV."'
 UNION ALL
-SELECT payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE account_con.user_id='".$_SESSION['id']."' AND
-   payment.con_id='".$_POST['acc_id']."' AND
-   payment.created_at<='".$created_atV."'
+   card.con_id='".$_POST['acc_id']."' AND
+   card.created_at<='".$created_atV."'
 
  ORDER BY created_at
 

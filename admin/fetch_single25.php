@@ -37,12 +37,12 @@ FROM income
    WHERE 
    income.con_id='".$b."'
 UNION ALL
-SELECT payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE 
-   payment.con_id='".$b."'
+   card.con_id='".$b."'
  ORDER BY created_at
 
   ");

@@ -6,9 +6,9 @@ include('function8.php');
 
 $query = '';
 $output = array();
-$query .= 'SELECT payment.*,acc_cat.name AS acc_type,account_con.status AS ac_status, account_con.measurement_no AS measurement_no,accounts.username AS username FROM payment 
+$query .= 'SELECT card.*,acc_cat.name AS acc_type,account_con.status AS ac_status, account_con.measurement_no AS measurement_no,accounts.username AS username FROM card 
 INNER JOIN account_con
-ON payment.con_id=account_con.id
+ON card.con_id=account_con.id
 INNER JOIN accounts
 ON account_con.user_id=accounts.id
 INNER JOIN acc_cat
@@ -16,8 +16,8 @@ ON acc_cat.id=account_con.acc_type
  WHERE ';
 if(isset($_POST["search"]["value"]))
 {
-	$query .= 'payment.note LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR payment.con_id LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'card.note LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'OR card.con_id LIKE "%'.$_POST["search"]["value"].'%" ';
 }
 if(isset($_POST["order"]))
 {
@@ -25,7 +25,7 @@ if(isset($_POST["order"]))
 }
 else
 {
-	$query .= 'ORDER BY payment.id DESC ';
+	$query .= 'ORDER BY card.id DESC ';
 }
 if($_POST["length"] != -1)
 {

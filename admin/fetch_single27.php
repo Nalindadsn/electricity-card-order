@@ -4,7 +4,7 @@ if(isset($_POST["i_id"]))
 {
 	$output = array();
 	$statement = $pdo->prepare(
-		"SELECT * FROM payment 
+		"SELECT * FROM card 
 		WHERE id = '".$_POST["i_id"]."' 
 		LIMIT 1"
 	);

@@ -4,7 +4,7 @@ include '../main.php';
 function get_total_all_records()
 {
 	include('db.php');
-	$statement = $pdo->prepare("SELECT * FROM payment");
+	$statement = $pdo->prepare("SELECT * FROM card");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();

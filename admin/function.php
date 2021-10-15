@@ -32,10 +32,10 @@ function get_total_all_records()
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
 }
-function get_total_all_records_payments()
+function get_total_all_records_cards()
 {
 	include('db.php');
-	$statement = $pdo->prepare("SELECT * FROM payments");
+	$statement = $pdo->prepare("SELECT * FROM cards");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();

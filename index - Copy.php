@@ -385,7 +385,7 @@ $prvEx=round(($exT-$exL)/$exL*100,2);
 <?php if (pr($prArray[23])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentReport.php">
+                            <a  class="nav-link" href="cardReport.php">
                                 <i class="fas fa-dot-circle"></i>  ගෙවීම් වාර්තා </a>
                             </a>
                         </li>
@@ -477,14 +477,14 @@ $prvEx=round(($exT-$exL)/$exL*100,2);
           <li class="nav-item  active ">
             
               <a class="nav-link" href="#paySub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="ni ni-align-left-2 text-blue"></i> Payments </a>
+                    <i class="ni ni-align-left-2 text-blue"></i> cards </a>
                     <ul class="collapse list-unstyled mx-3" id="paySub" >
 
 <?php if (pr($prArray[31])==1) { ?>
 
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="payments.php">
+                            <a  class="nav-link" href="cards.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම්  </a>
                             </a>
                         </li>
@@ -493,7 +493,7 @@ $prvEx=round(($exT-$exL)/$exL*100,2);
 <?php if (pr($prArray[32])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentTypes.php">
+                            <a  class="nav-link" href="cardTypes.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම් ක්‍රම  </a>
                             </a>
                         </li>

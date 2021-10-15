@@ -452,7 +452,7 @@ function gv($gt,$n,$c){
 <?php if (pr($prArray[23])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentReport.php">
+                            <a  class="nav-link" href="cardReport.php">
                                 <i class="fas fa-dot-circle"></i>  ගෙවීම් වාර්තා </a>
                             </a>
                         </li>
@@ -551,7 +551,7 @@ function gv($gt,$n,$c){
 
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="payments.php">
+                            <a  class="nav-link" href="cards.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම්  </a>
                             </a>
                         </li>
@@ -560,7 +560,7 @@ function gv($gt,$n,$c){
 <?php if (pr($prArray[32])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentTypes.php">
+                            <a  class="nav-link" href="cardTypes.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම් ක්‍රම  </a>
                             </a>
                         </li>
@@ -896,7 +896,7 @@ if($accountsUser['image']==""){
 <option value="20" <?php gv($_GET['id'],20,"cm") ?>>20- Reports</option>
 <option value="21" <?php gv($_GET['id'],21,"ch") ?>>21-  Income</option>
 <option value="22" <?php gv($_GET['id'],22,"ch") ?>> 22- Expenses</option>
-<option value="23" <?php gv($_GET['id'],23,"ch") ?>> 23- Payments</option>
+<option value="23" <?php gv($_GET['id'],23,"ch") ?>> 23- cards</option>
 
 <option value="24" <?php gv($_GET['id'],24,"cm") ?>>24- Income</option>
 <option value="25" <?php gv($_GET['id'],25,"ch") ?>> 25- Income</option>
@@ -918,8 +918,8 @@ if($accountsUser['image']==""){
 <option value="72"  <?php gv($_GET['id'],72,"child"); ?>>  -add /update</option>
 
 
-<option value="30" <?php gv($_GET['id'],30,"cm") ?>>30- Payments</option>
-<option value="31" <?php gv($_GET['id'],31,"ch") ?>> 31-  Payments</option>
+<option value="30" <?php gv($_GET['id'],30,"cm") ?>>30- cards</option>
+<option value="31" <?php gv($_GET['id'],31,"ch") ?>> 31-  cards</option>
 <option value="73"  <?php gv($_GET['id'],73,"child"); ?>>  -bill</option>
 <option value="74"  <?php gv($_GET['id'],74,"child"); ?>>  -add /update</option>
 

@@ -8,7 +8,7 @@ if(isset($_POST["operation"]))
 	{
 
 		$statement = $pdo->prepare("
-			INSERT INTO payment_cat (name) 
+			INSERT INTO card_cat (name) 
 			VALUES (:i_name)
 		");
 		$result = $statement->execute(
@@ -27,7 +27,7 @@ if(isset($_POST["operation"]))
 	{
 
 		$statement = $pdo->prepare(
-			"UPDATE payment_cat 
+			"UPDATE card_cat 
 			SET name = :name
 			WHERE id = :id
 			"

@@ -3,7 +3,7 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM payments ";
+$query .= "SELECT * FROM cards ";
 if(isset($_POST["search"]["value"]))
 {
 	$query .= 'WHERE user_id LIKE "%'.$_POST["search"]["value"].'%" ';
@@ -54,7 +54,7 @@ $sub_array[] ="Rs. ".$row['amount'];
 $output = array(
 	"draw"				=>	intval($_POST["draw"]),
 	"recordsTotal"		=> 	$filtered_rows,
-	"recordsFiltered"	=>	get_total_all_records_payments(),
+	"recordsFiltered"	=>	get_total_all_records_cards(),
 	"data"				=>	$data
 );
 echo json_encode($output);

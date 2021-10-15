@@ -32,10 +32,10 @@ function get_total_all_recordsA()
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
 }
-function get_total_all_records_paymentsA()
+function get_total_all_records_cardsA()
 {
 	include('admin/db.php');
-	$statement = $pdo->prepare("SELECT * FROM payments");
+	$statement = $pdo->prepare("SELECT * FROM cards");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
@@ -135,10 +135,10 @@ FROM income
    INNER JOIN account_con
    ON income.con_id = account_con.id
 UNION ALL
-SELECT note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
  ORDER BY created_at
   ");
 $stmtIn->execute();
@@ -160,12 +160,12 @@ FROM income
    WHERE 
    income.con_id='".$b."'
 UNION ALL
-SELECT note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE account_con.user_id='".$a."' AND
-   payment.con_id='".$b."'
+   card.con_id='".$b."'
  ORDER BY created_at
 
   ");
@@ -201,9 +201,9 @@ function acc_cat(){
 	return $result;
 
 }
-function payment_cat(){
+function card_cat(){
 	include('admin/db.php');
-	$statement = $pdo->prepare('SELECT * FROM payment_cat');
+	$statement = $pdo->prepare('SELECT * FROM card_cat');
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $result;

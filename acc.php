@@ -295,7 +295,7 @@ include 'acc_function.php';
                         </li>
                         <li class="nav-item">
                             <a  class="nav-link" href="users.php">
-                                <i class="fas fa-dot-circle"></i> All Payments </a>
+                                <i class="fas fa-dot-circle"></i> All cards </a>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -350,16 +350,16 @@ include 'acc_function.php';
           <li class="nav-item  active ">
             
               <a class="nav-link" href="#paySub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="ni ni-align-left-2 text-blue"></i> payment </a>
+                    <i class="ni ni-align-left-2 text-blue"></i> card </a>
                     <ul class="collapse list-unstyled mx-3" id="paySub" >
                         <li class="nav-item">
-                            <a  class="nav-link" href="payments.php">
-                                <i class="fas fa-dot-circle"></i> All payment </a>
+                            <a  class="nav-link" href="cards.php">
+                                <i class="fas fa-dot-circle"></i> All card </a>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a  class="nav-link" href="users.php">
-                                <i class="fas fa-dot-circle"></i> Category payment  </a>
+                                <i class="fas fa-dot-circle"></i> Category card  </a>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -546,12 +546,12 @@ FROM income
    WHERE  
    income.con_id='".$b."'
 UNION ALL
-SELECT payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE  
-   payment.con_id='".$b."'
+   card.con_id='".$b."'
  ORDER BY created_at
 
 

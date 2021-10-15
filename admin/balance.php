@@ -335,7 +335,7 @@ foreach ($accounts as $keySes) { ?>
             <a href="#" class="nav-link">
               <i class="fas fa-money-bill"></i> &nbsp;&nbsp;   
               <p>
-                Payment Management
+                card Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -461,7 +461,7 @@ foreach ($accounts as $keySes) { ?>
               <th width="35%">Balance</th>
               <th width="35%"></th>
               <th width="35%">Status</th>
-              <th width="10%">Payment</th>
+              <th width="10%">card</th>
             </tr>
           </thead>
         </table>
@@ -680,7 +680,7 @@ $(document).ready(function(){
         $('#userModal').modal('show');
         $('#first_name').val(data.first_name);
         $('#last_name').val(data.last_name);
-        $('.modal-title').text("Payment");
+        $('.modal-title').text("card");
         $('#user_id').val(user_id);
         $('#user_uploaded_image').html(data.user_image);
         $('#action').val("Edit");

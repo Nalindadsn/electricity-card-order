@@ -356,7 +356,7 @@ include 'pr.php';
 <?php if (pr($prArray[23])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentReport.php">
+                            <a  class="nav-link" href="cardReport.php">
                                 <i class="fas fa-dot-circle"></i>  ගෙවීම් වාර්තා </a>
                             </a>
                         </li>
@@ -455,7 +455,7 @@ include 'pr.php';
 
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="payments.php">
+                            <a  class="nav-link" href="cards.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම්  </a>
                             </a>
                         </li>
@@ -464,7 +464,7 @@ include 'pr.php';
 <?php if (pr($prArray[32])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentTypes.php">
+                            <a  class="nav-link" href="cardTypes.php">
                                 <i class="fas fa-dot-circle text-primary"></i> ගෙවීම් categories  </a>
                             </a>
                         </li>
@@ -852,7 +852,7 @@ $(document).ready(function(){
     "serverSide":true,
     "order":[],
     "ajax":{
-      url:"admin/fetch_paymentType.php",
+      url:"admin/fetch_cardType.php",
       type:"POST"
     },
       dom: 'Bfrtip',

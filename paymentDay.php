@@ -385,7 +385,7 @@ $accounts = $stmt->fetch();
 <?php if (pr($prArray[23])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentReport.php">
+                            <a  class="nav-link" href="cardReport.php">
                                 <i class="fas fa-dot-circle text-primary"></i>  ගෙවීම් වාර්තා </a>
                             </a>
                         </li>
@@ -484,7 +484,7 @@ $accounts = $stmt->fetch();
 
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="payments.php">
+                            <a  class="nav-link" href="cards.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම්  </a>
                             </a>
                         </li>
@@ -493,7 +493,7 @@ $accounts = $stmt->fetch();
 <?php if (pr($prArray[32])==1) { ?>
 
                         <li class="nav-item">
-                            <a  class="nav-link" href="paymentTypes.php">
+                            <a  class="nav-link" href="cardTypes.php">
                                 <i class="fas fa-dot-circle"></i> ගෙවීම් ක්‍රම  </a>
                             </a>
                         </li>
@@ -625,7 +625,7 @@ $accounts = $stmt->fetch();
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.php">Payment Report  <?php echo $_GET['year']."-".$_GET['day'] ?></a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.php">card Report  <?php echo $_GET['year']."-".$_GET['day'] ?></a>
         <!-- Form -->
         <form method="GET" action="findAccounts.php" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -712,7 +712,7 @@ if($accounts['image']==""){
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Payments </a></li>
+                  <li class="breadcrumb-item"><a href="#">cards </a></li>
                   <li class="breadcrumb-item"><a href="#">Report</a></li>
                   <li class="breadcrumb-item"><a href="#"><?php echo $_GET['year']."-".$_GET['day'] ?></a></li>
                 </ol>
@@ -764,7 +764,7 @@ if (date('Y')==$v['year']) {
     ?>
 
         <li class="nav-item  ">
-          <a class="nav-link active" href="paymentReport.php?year=<?php 
+          <a class="nav-link active" href="cardReport.php?year=<?php 
            echo $v['year']; ?>"><?php 
            echo $v['year']; ?></a>
         </li>
@@ -772,7 +772,7 @@ if (date('Y')==$v['year']) {
  }else{
 ?>
         <li class="nav-item">
-          <a class="nav-link" href="paymentReport.php?year=<?php 
+          <a class="nav-link" href="cardReport.php?year=<?php 
            echo $v['year']; ?>"><?php 
            echo $v['year']; ?></a>
         </li>
@@ -784,7 +784,7 @@ if ($_GET['year']==$v['year']) {
     ?>
 
         <li class="nav-item">
-          <a class="nav-link active" href="paymentReport.php?year=<?php 
+          <a class="nav-link active" href="cardReport.php?year=<?php 
            echo $v['year']; ?>"><?php  echo $v['year']; ?></a>
         </li>
 
@@ -793,7 +793,7 @@ if ($_GET['year']==$v['year']) {
     ?>
 
         <li class="nav-item">
-          <a class="nav-link" href="paymentReport.php?year=<?php 
+          <a class="nav-link" href="cardReport.php?year=<?php 
            echo $v['year']; ?>"><?php  echo $v['year']; ?></a>
         </li>
 
@@ -828,20 +828,20 @@ if ($_GET['year']==$v['year']) {
 
 <?php 
   if (!isset($_GET['year'])) {
-    foreach (paymentF(date('Y')) as $v) {
+    foreach (cardF(date('Y')) as $v) {
     ?>
         <li class="nav-item  ">
-          <a class="nav-link active" href="paymentDay.php?year=<?php 
+          <a class="nav-link active" href="cardDay.php?year=<?php 
            echo $v['MonthY']; ?>&day=<?php 
            echo $v['MonthN']; ?>"><?php 
            echo $v['Month']; ?></a>
         </li>
 <?php   }
   }else{
-foreach (paymentF($_GET['year']) as $v) {
+foreach (cardF($_GET['year']) as $v) {
     ?>
         <li class="nav-item  ">
-          <a class="nav-link active" href="paymentDay.php?year=<?php 
+          <a class="nav-link active" href="cardDay.php?year=<?php 
            echo $v['MonthY']; ?>&day=<?php 
            echo $v['MonthN']; ?>"><?php 
            echo $v['Month']; ?></a>
@@ -870,7 +870,7 @@ foreach (paymentF($_GET['year']) as $v) {
 //print_r(expensesM(date('Y'),date('m'))) ;
 
   if (!isset($_GET['year'])) {
-    foreach (paymentM(date('Y'),date('m')) as $v) {
+    foreach (cardM(date('Y'),date('m')) as $v) {
     ?>
 
             <tr>
@@ -879,7 +879,7 @@ foreach (paymentF($_GET['year']) as $v) {
             </tr>
 <?php   }
   }else{
-foreach (paymentM($_GET['year'],$_GET['day']) as $v) {
+foreach (cardM($_GET['year'],$_GET['day']) as $v) {
     ?>
 
             <tr>

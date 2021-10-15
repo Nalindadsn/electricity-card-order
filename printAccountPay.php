@@ -2,14 +2,14 @@
 include('function_locations.php');
 
 
-    $statementIV = $pdo->prepare("SELECT payment.*,accounts.name AS un, account_con.addressFour AS address,account_con.addressFour AS addressFour, account_con.user_id AS user_id, account_con.measurement_no AS measurement_no, account_con.phone_fixed AS fixed, account_con.phone_mobile AS mobile FROM payment
+    $statementIV = $pdo->prepare("SELECT card.*,accounts.name AS un, account_con.addressFour AS address,account_con.addressFour AS addressFour, account_con.user_id AS user_id, account_con.measurement_no AS measurement_no, account_con.phone_fixed AS fixed, account_con.phone_mobile AS mobile FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    INNER JOIN accounts
    ON accounts.id = account_con.user_id
 
    WHERE 
-   payment.id='".$_GET['id']."' 
+   card.id='".$_GET['id']."' 
      ");
     $statementIV->execute();
     $resultIV = $statementIV->fetch();
@@ -186,13 +186,13 @@ FROM income
    income.con_id='".$_POST['acc_id']."' AND
    income.created_at<='".$created_atV."'
 UNION ALL
-SELECT payment.note AS ptype,'py' AS type , (payment.amount)*-1 AS amount, payment.created_at
-FROM payment
+SELECT card.note AS ptype,'py' AS type , (card.amount)*-1 AS amount, card.created_at
+FROM card
    INNER JOIN account_con
-   ON payment.con_id = account_con.id
+   ON card.con_id = account_con.id
    WHERE account_con.user_id='".$_SESSION['id']."' AND
-   payment.con_id='".$_POST['acc_id']."' AND
-   payment.created_at<='".$created_atV."'
+   card.con_id='".$_POST['acc_id']."' AND
+   card.created_at<='".$created_atV."'
 
  ORDER BY created_at
 

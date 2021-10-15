@@ -46,7 +46,7 @@
 <li  <?php gv($_GET['id'],20,"cm"); ?>>- Reports  <?php ga($_GET['id'],20,"cm"); ?></li>
 <li  <?php gv($_GET['id'],21,"ch"); ?>>-  Income  <?php ga($_GET['id'],21,"ch"); ?></li>
 <li  <?php gv($_GET['id'],22,"ch"); ?>> - Expenses  <?php ga($_GET['id'],22,"ch"); ?></li>
-<li  <?php gv($_GET['id'],23,"ch"); ?>> - Payments  <?php ga($_GET['id'],23,"ch"); ?></li>
+<li  <?php gv($_GET['id'],23,"ch"); ?>> - cards  <?php ga($_GET['id'],23,"ch"); ?></li>
 <li  <?php gv($_GET['id'],24,"cm"); ?>>- Income  <?php ga($_GET['id'],24,"cm"); ?></li>
 <li  <?php gv($_GET['id'],25,"ch"); ?>> - Income  <?php ga($_GET['id'],25,"ch"); ?></li>
 <li  <?php gv($_GET['id'],67,"cd"); ?>>  -add /update  <?php ga($_GET['id'],67,"cd"); ?></li>
@@ -59,8 +59,8 @@
 <li  <?php gv($_GET['id'],71,"cd"); ?>>  -add /update  <?php ga($_GET['id'],71,"cd"); ?></li>
 <li  <?php gv($_GET['id'],29,"ch"); ?>> - Category  <?php ga($_GET['id'],29,"ch"); ?></li>
 <li  <?php gv($_GET['id'],72,"cd"); ?>>  -add /update  <?php ga($_GET['id'],72,"cd"); ?></li>
-<li  <?php gv($_GET['id'],30,"cm"); ?>>- Payments  <?php ga($_GET['id'],30,"cm"); ?></li>
-<li  <?php gv($_GET['id'],31,"ch"); ?>> -  Payments  <?php ga($_GET['id'],31,"ch"); ?></li>
+<li  <?php gv($_GET['id'],30,"cm"); ?>>- cards  <?php ga($_GET['id'],30,"cm"); ?></li>
+<li  <?php gv($_GET['id'],31,"ch"); ?>> -  cards  <?php ga($_GET['id'],31,"ch"); ?></li>
 <li  <?php gv($_GET['id'],73,"cd"); ?>>  -bill  <?php ga($_GET['id'],73,"cd"); ?></li>
 <li  <?php gv($_GET['id'],74,"cd"); ?>>  -add /update  <?php ga($_GET['id'],74,"cd"); ?></li>
 <li  <?php gv($_GET['id'],32,"ch"); ?>> - Category  <?php ga($_GET['id'],32,"ch"); ?></li>

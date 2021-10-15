@@ -13,7 +13,7 @@ if(isset($_POST["operation"]))
 			$image = upload_image();
 		}
 		$statement = $pdo->prepare("
-			INSERT INTO payments (user_id, amount) 
+			INSERT INTO cards (user_id, amount) 
 			VALUES (:first_name, :last_name)
 		");
 		$result = $statement->execute(
@@ -41,7 +41,7 @@ if(isset($_POST["operation"]))
 			$image = upload_image();
 		}
 		$statement = $pdo->prepare("
-			INSERT INTO payments (user_id, amount) 
+			INSERT INTO cards (user_id, amount) 
 			VALUES (:first_name, :last_name)
 		");
 		$result = $statement->execute(

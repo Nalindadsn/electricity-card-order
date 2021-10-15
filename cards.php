@@ -10,7 +10,7 @@ $stmt->execute();
 $accounts = $stmt->fetch();
 
 if (isset($_GET['id'])) {
-$stmt = $pdo->prepare("SELECT * FROM payment_cat WHERE id='".$_GET['id']."'");
+$stmt = $pdo->prepare("SELECT * FROM card_cat WHERE id='".$_GET['id']."'");
 $stmt->execute();
 $accounts = $stmt->fetch();
 }
@@ -338,7 +338,7 @@ $accounts = $stmt->fetch();
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="index.php">Payments</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="index.php">cards</a>
         <!-- Form -->
        <form method="GET" action="findAccounts.php" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -425,12 +425,12 @@ if($accounts['image']==""){
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Payments</a></li>
+                  <li class="breadcrumb-item"><a href="#">cards</a></li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a id="add_button" class="btn btn-sm btn-neutral">Add Payment</a>
+              <a id="add_button" class="btn btn-sm btn-neutral">Add card</a>
               
             </div>
           </div>
@@ -739,7 +739,7 @@ $(document).ready(function(){
     "serverSide":true,
     "order":[],
     "ajax":{
-      url:"admin/fetch_payments.php",
+      url:"admin/fetch_cards.php",
       type:"POST"
     },
       dom: 'Bfrtip',

@@ -20,7 +20,7 @@
 <option value="20">report</option>
 <option value="21">	incom</option>
 <option value="22">	expenses</option>
-<option value="23">	payment</option>
+<option value="23">	card</option>
 <option value="24">income</option>
 <option value="25">	inc</option>
 <option value="26">	cat</option>

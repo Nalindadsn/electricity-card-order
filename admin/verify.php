@@ -389,7 +389,7 @@ foreach ($accounts as $keySes) { ?>
             <a href="#" class="nav-link">
               <i class="fas fa-money-bill"></i> &nbsp;&nbsp;   
               <p>
-                Payment Management
+                card Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -774,7 +774,7 @@ $date_ten = strtotime($time);
 $date_ten = strtotime("-12 minutes", $date_ten); 
 $date_ten = date('Y-m-d h:i A', $date_ten);
 
-$paymentDate= date('Y-m-d', strtotime($tm) );
+$cardDate= date('Y-m-d', strtotime($tm) );
 
 $contractDateBegin = date('Y-m-d h:i A', strtotime($date_ten)); 
 $contractDateEnd = date('Y-m-d h:i A', strtotime($date_one));
@@ -785,7 +785,7 @@ $contractDateEnd=date('Y-m-d', strtotime($startDate->format('Y-m-d'). ' + 7 days
 
 
 
-if($paymentDate > $contractDateBegin && $paymentDate < $contractDateEnd)  
+if($cardDate > $contractDateBegin && $cardDate < $contractDateEnd)  
 {  
   $n++;
 

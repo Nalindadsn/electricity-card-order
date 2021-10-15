@@ -4,7 +4,7 @@ include '../main.php';
 function get_total_all_records()
 {
 	include('db.php');
-	$statement = $pdo->prepare("SELECT * FROM payment");
+	$statement = $pdo->prepare("SELECT * FROM card");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
@@ -17,7 +17,7 @@ if(isset($_POST["operation1"]))
 	{
 
 		$statement = $pdo->prepare("
-			INSERT INTO payment (note,con_id) 
+			INSERT INTO card (note,con_id) 
 			VALUES (:first_name,:category)
 		");
 		$result = $statement->execute(
@@ -39,7 +39,7 @@ if(isset($_POST["operation"]))
 	{
 
 		$statement = $pdo->prepare("
-			INSERT INTO payment (note,con_id) 
+			INSERT INTO card (note,con_id) 
 			VALUES (:first_name,:category)
 		");
 		$result = $statement->execute(
@@ -58,7 +58,7 @@ if(isset($_POST["operation"]))
 	if($_POST["operation"] == "Edit")
 	{
 		$statement = $pdo->prepare(
-			"UPDATE payment 
+			"UPDATE card 
 			SET note = :first_name,
 			 con_id = :category
 			WHERE id = :user_id

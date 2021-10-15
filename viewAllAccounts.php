@@ -798,7 +798,7 @@ $(document).ready(function(){
     event.preventDefault();
     var acc_cat_a = $('#acc_cat_a').val();
     var no_beneficiaries_a = $('#no_beneficiaries_a').val();
-    var payment_cat_a = $('#payment_cat_a').val();
+    var card_cat_a = $('#card_cat_a').val();
  
     if(acc_cat_a != '456456' && no_beneficiaries_a != 'hjjkhk')
     {
@@ -849,7 +849,7 @@ $(document).ready(function(){
     $('#phone_fixed_a').val(data.phone_fixed_a);
     $('#no_beneficiaries_a').val(data.no_beneficiaries_a);
     $('#acc_cat_a').val(data.acc_cat_a);
-    $('#payment_cat_a').val(data.payment_cat_a);
+    $('#card_cat_a').val(data.card_cat_a);
     $('#house_no_a').val(data.house_no_a);
      $('#note_a').val(data.note_a);
         $('#action_a').val("Edit");

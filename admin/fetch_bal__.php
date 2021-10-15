@@ -114,7 +114,7 @@ $date_ten = strtotime($time);
 $date_ten = strtotime("-12 minutes", $date_ten); 
 $date_ten = date('Y-m-d h:i A', $date_ten);
 
-$paymentDate= date('Y-m-d', strtotime($tm) );
+$cardDate= date('Y-m-d', strtotime($tm) );
 
 $contractDateBegin = date('Y-m-d h:i A', strtotime($date_ten)); 
 $contractDateEnd = date('Y-m-d h:i A', strtotime($date_one));
@@ -125,7 +125,7 @@ $contractDateEnd=date('Y-m-d', strtotime($startDate->format('Y-m-d'). ' + 7 days
 
 
 
-if($paymentDate > $contractDateBegin && $paymentDate < $contractDateEnd)  
+if($cardDate > $contractDateBegin && $cardDate < $contractDateEnd)  
 {  
   $n++;
 } 
@@ -248,7 +248,7 @@ foreach($result as $row)
 
 
 
-        $stmt3zzb = $pdo->prepare("SELECT sum(amount) AS sumV FROM payments WHERE user_id='".$row['username']."'");
+        $stmt3zzb = $pdo->prepare("SELECT sum(amount) AS sumV FROM cards WHERE user_id='".$row['username']."'");
         $stmt3zzb->execute();
         $dataArr3ZZb = $stmt3zzb->fetchAll(PDO::FETCH_ASSOC);
         $rcb=$stmt3zzb->rowCount();
@@ -314,7 +314,7 @@ $sub_array[] =  formatMoney(ooo($row['username']));
 
 
 
-        $stmt3zzb = $pdo->prepare("SELECT sum(amount) AS sumV FROM payments WHERE user_id='".$row['username']."'");
+        $stmt3zzb = $pdo->prepare("SELECT sum(amount) AS sumV FROM cards WHERE user_id='".$row['username']."'");
         $stmt3zzb->execute();
         $dataArr3ZZb = $stmt3zzb->fetchAll(PDO::FETCH_ASSOC);
         $rcb=$stmt3zzb->rowCount();
@@ -331,14 +331,14 @@ $sub_array[] =  formatMoney(ooo($row['username']));
 
 
 
-        $stmt3zzbb = $pdo->prepare("SELECT * FROM payments WHERE user_id='".$row['username']."' LIMIT 1");
+        $stmt3zzbb = $pdo->prepare("SELECT * FROM cards WHERE user_id='".$row['username']."' LIMIT 1");
         $stmt3zzbb->execute();
         $dataArr3ZZbb = $stmt3zzbb->fetchAll(PDO::FETCH_ASSOC);
         $rcb=$stmt3zzbb->rowCount();
         if ($rcb>0) {
         	# code...
         foreach ($dataArr3ZZbb as $keyDtb) {
-            $sub_array[] =  "Latest Payment : ".formatMoney($keyDtb['amount']) ."<br>".$keyDtb['created_at'];
+            $sub_array[] =  "Latest card : ".formatMoney($keyDtb['amount']) ."<br>".$keyDtb['created_at'];
         }
         }else{
         	$sub_array[] =  "No any transaction";

@@ -355,7 +355,7 @@ foreach ($accounts as $keySes) { ?>
             <a href="#" class="nav-link">
               <i class="fas fa-money-bill"></i> &nbsp;&nbsp;   
               <p>
-                Payment Management
+                card Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

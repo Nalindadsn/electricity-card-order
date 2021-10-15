@@ -324,7 +324,7 @@ foreach ($accounts as $keySes) { ?>
             <a href="#" class="nav-link active">
               <i class="fas fa-money-bill"></i> &nbsp;&nbsp;   
               <p>
-                Payment Management
+                card Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -398,12 +398,12 @@ foreach ($accounts as $keySes) { ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Payments</h1>
+            <h1>cards</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Payments</li>
+              <li class="breadcrumb-item active">cards</li>
             </ol>
           </div>
         </div>
@@ -417,7 +417,7 @@ foreach ($accounts as $keySes) { ?>
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Payments</h3>
+                <h3 class="card-title">cards</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

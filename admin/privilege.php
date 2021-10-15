@@ -48,7 +48,7 @@ elseif($v==66) { return "  -Customers / view accounts"; }
 elseif($v==20) { return "20- Reports"; }
 elseif($v==21) { return "21-  Reports / Income"; }
 elseif($v==22) { return " 22- Reports / Expenses"; }
-elseif($v==23) { return " 23- Reports / Payments"; }
+elseif($v==23) { return " 23- Reports / cards"; }
 elseif($v==24) { return "24- Income Section"; }
 elseif($v==25) { return " 25- Income"; }
 elseif($v==67) { return "  - Income / add or update"; }
@@ -61,12 +61,12 @@ elseif($v==28) { return " 28- Expenses"; }
 elseif($v==71) { return "  -Expenses / add or update"; }
 elseif($v==29) { return " 29- Expenses Category"; }
 elseif($v==72) { return "  -Expenses Category / add or update"; }
-elseif($v==30) { return "30- Payments Section"; }
-elseif($v==31) { return " 31-  Payments"; }
-elseif($v==73) { return "  -Payments / bill"; }
-elseif($v==74) { return "  -Payments / add or update"; }
-elseif($v==32) { return " 32- Payment Category"; }
-elseif($v==75) { return "  - Payment Category / add or update"; }
+elseif($v==30) { return "30- cards Section"; }
+elseif($v==31) { return " 31-  cards"; }
+elseif($v==73) { return "  -cards / bill"; }
+elseif($v==74) { return "  -cards / add or update"; }
+elseif($v==32) { return " 32- card Category"; }
+elseif($v==75) { return "  - card Category / add or update"; }
 elseif($v==33) { return "33- Bin"; }
 elseif($v==34) { return " 34- Accounts Bin "; }
 elseif($v==76) { return "  -Accounts Bin / Activate"; }

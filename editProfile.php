@@ -710,7 +710,7 @@ if (isset($_POST['username'], $_POST['password'], $_POST['cpassword'], $_POST['e
 
 
 
-    <label>payment type</label>
+    <label>card type</label>
     <input type="text" name="first_name" id="first_name1" class="form-control" />
     <br />
     <label>no of benificries</label>

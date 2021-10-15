@@ -6,7 +6,7 @@ include '../pr.php';
 function get_total_all_records()
 {
 	include('db.php');
-	$statement = $pdo->prepare("SELECT * FROM payment_cat ");
+	$statement = $pdo->prepare("SELECT * FROM card_cat ");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
@@ -14,7 +14,7 @@ function get_total_all_records()
 
 $query = '';
 $output = array();
-$query .= 'SELECT * FROM payment_cat WHERE  ';
+$query .= 'SELECT * FROM card_cat WHERE  ';
 if(isset($_POST["search"]["value"]))
 {
 	$query .= '  name LIKE "%'.$_POST["search"]["value"].'%" ';
