@@ -565,14 +565,6 @@ if($accounts['image']==""){
                   </div>
 
 
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-username">NIC</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="<?php echo $accounts['idno']; ?>">
-                      </div>
-                    </div>
-                  </div>
 
               
                 </div>

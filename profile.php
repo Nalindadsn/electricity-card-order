@@ -688,11 +688,8 @@ if($accounts['image']==""){
           <h4 class="modal-title">Add User</h4>
         </div>
         <div class="modal-body">
-          <label>First Name</label>
+          <label>Full Name</label>
           <input type="text" name="first_name" id="first_name" class="form-control" />
-          <br />
-          <label>NIC No</label>
-          <input type="text" name="idno" id="idno" class="form-control" />
           <br />
           <label>Select User Image</label>
           <input type="file" name="user_image" id="user_image" />
@@ -721,9 +718,6 @@ if($accounts['image']==""){
           <label>Full  Name</label>
           <input type="text" name="first_name4" id="first_name4" class="form-control" />
           <br />
-          <label>Enter NIC</label>
-          <input type="text" name="idno4" id="idno4" class="form-control" />
-          <br />
           <label>Select User Image</label>
           <input type="file" name="user_image4" id="user_image4" />
           <span id="user_uploaded_image4"></span>
@@ -751,9 +745,7 @@ if($accounts['image']==""){
           <label>Full Name</label>
           <input type="text" name="first_name5" id="first_name5" class="form-control" />
           <br />
-          <label>NIC</label>
-          <input type="text" name="idno5" id="idno5" class="form-control" />
-
+       
           <!-- <label>Select User Image</label> -->
           <input type="file" name="user_image5" id="user_image5" />
           <span id="user_uploaded_image5"></span>
@@ -779,11 +771,8 @@ if($accounts['image']==""){
           <h4 class="modal-title6">Add User</h4>
         </div>
         <div class="modal-body">
-          <label>First Name</label>
+          <label>Full Name</label>
           <input type="text" name="first_name6" id="first_name6" class="form-control" />
-          <br />
-          <label>Enter Last Name</label>
-          <input type="text" name="idno6" id="idno6" class="form-control" />
           <br />
           <label>Select User Image</label>
           <input type="file" name="user_image6" id="user_image6" />
@@ -1278,7 +1267,7 @@ $(document).ready(function(){
  //This JQuery code will Reset value of Modal item when modal will load for create new records
  $('#modal_button').click(function(){
   $('#customerModal').modal('show'); //It will load modal on web page
-  $('#first_name1').val(''); //This will clear Modal first name textbox
+  $('#first_name1').val(''); //This will clear Modal Full Name textbox
   $('#last_name1').val(''); //This will clear Modal last name textbox
   $('#status1').val('1'); //This will clear Modal last name textbox
   $('#user_id').val('1'); //This will clear Modal last name textbox
@@ -1291,7 +1280,7 @@ $(document).ready(function(){
 
     event.preventDefault();
 
-  var firstName = $('#first_name1').val(); //Get the value of first name textbox.
+  var firstName = $('#first_name1').val(); //Get the value of Full Name textbox.
   var lastName = $('#last_name1').val(); //Get the value of last name textbox
   var status = $('#status1').val(); //Get the value of last name textbox
   var u_id = $('#u_id').val(); //Get the value of last name textbox
@@ -1334,7 +1323,7 @@ $(document).ready(function(){
     $('.modal-title').text("Update Records"); //This code will change this class text to Update records
     $('#action').val("Update");     //This code will change Button value to Update
     $('#acc_id').val(id);     //It will define value of id variable to this customer id hidden field
-    $('#first_name1').val(data.first_name);  //It will assign value to modal first name texbox
+    $('#first_name1').val(data.first_name);  //It will assign value to modal Full Name texbox
     $('#last_name1').val(data.last_name);  //It will assign value of modal last name textbox
     $('#status1').val(data.status);  //It will assign value of modal last name textbox
    }
