@@ -532,9 +532,12 @@ if($accounts['image']==""){
             <option value="">No</option>
           </select>
           <br />
+          <div style="display:none">
+
           <label>Select User Image</label>
           <input type="file" name="user_image" id="user_image" />
           <span id="user_uploaded_image"></span>
+          </div>
         </div>
         <div class="modal-footer">
         <!-- <input id="hidden_user_image" name="hidden_user_image" value="test"> -->
