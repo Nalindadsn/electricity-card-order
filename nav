@@ -1,0 +1,182 @@
+         <li class="nav-item  active ">
+            <a class="nav-link active" href="index.php">
+              <i class="ni ni-tv-2 text-primary"></i> Dashboard
+            </a>
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#accsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-bullet-list-67 text-red"></i> All Acconts </a>
+                    <ul class="collapse list-unstyled mx-3" id="accsubmenu" >
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="viewAllAccounts.php">
+                                <i class="fas fa-dot-circle"></i> All Accounts </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="viewActiveAccounts.php">
+                                <i class="fas fa-dot-circle"></i>active Accounts </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="allAccounts.php">
+                                <i class="fas fa-dot-circle"></i> new Accounts </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountTypes.php">
+                                <i class="fas fa-dot-circle"></i>Account Types </a>
+                            </a>
+                        </li>
+<!--                         <li class="nav-item">
+                            <a  class="nav-link" href="printAcc.php">
+                                <i class="fas fa-dot-circle"></i>Print Bill </a>
+                            </a>
+                        </li> -->
+                    </ul>
+
+          </li>
+
+
+
+
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users text-yellow"></i> Customers </a>
+                    <ul class="collapse list-unstyled mx-3" id="homesubmenu" >
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="admins.php">
+                                <i class="fas fa-dot-circle"></i> Admins </a>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="users.php">
+                                <i class="fas fa-dot-circle"></i> Customers </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#expSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-align-left-2 text-blue"></i> Expenses </a>
+                    <ul class="collapse list-unstyled mx-3" id="expSub" >
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="expenses.php">
+                                <i class="fas fa-dot-circle"></i>  expenses </a>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="expensesCat.php">
+                                <i class="fas fa-dot-circle"></i> expenses categories </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#paySub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-align-left-2 text-blue"></i> Order card </a>
+                    <ul class="collapse list-unstyled mx-3" id="paySub" >
+
+
+ 
+                        <li class="nav-item">
+                            <a  class="nav-link" href="cards.php">
+                                <i class="fas fa-dot-circle"></i> cards  </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#binSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-trash text-red"></i> Bin </a>
+                    <ul class="collapse list-unstyled mx-3" id="binSub" >
+
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountsBin.php">
+                                <i class="fas fa-dot-circle"></i> Accounts </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountTypesBin.php">
+                                <i class="fas fa-dot-circle"></i> Account Types </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="adminsBin.php">
+                                <i class="fas fa-dot-circle"></i> Admins  </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="usersBin.php">
+                                <i class="fas fa-dot-circle"></i> Customers </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#settingsSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-settings-gear-65 text-blue"></i> Settings </a>
+                    <ul class="collapse list-unstyled mx-3" id="settingsSub" >
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="settings.php">
+                                <i class="fas fa-dot-circle"></i> Other </a>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+          </li>

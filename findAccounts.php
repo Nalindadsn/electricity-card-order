@@ -1,0 +1,764 @@
+<?php
+include 'main.php';
+
+include 'pr.php';
+?><?php 
+include 'function.php';
+
+      include 'dropdown.php';
+      $obj = new Dropdown();
+      $rows = $obj->fetchOne();
+      include 'dropdown1.php';
+      $obj1 = new Dropdown1();
+      $rows1 = $obj1->fetchOne();
+
+if (!isset($_SESSION['name'])) {
+  header('Location:login.php');
+}
+
+
+$stmt = $pdo->prepare("SELECT * FROM accounts WHERE id='".$_SESSION['id']."'");
+$stmt->execute();
+$accounts = $stmt->fetch();
+
+
+
+$stmtAll = $pdo->prepare("SELECT * FROM accounts WHERE idno='".$_GET['id']."' limit 1");
+$stmtAll->execute();
+$accountsAll = $stmtAll->fetch();
+$rowC= $stmtAll->rowCount();
+
+
+
+
+
+
+
+$total=0;
+include 'admin/function.php';
+include 'acc_function.php';
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    warter
+  </title>
+  <!-- Favicon -->
+  <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="./assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="./assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+  <style type="text/css">
+#accSec1 > div > div > div > div > table > tbody > tr > td{
+
+  padding: 4px 2px;
+}
+ .card-body > table > tbody > tr > td,.card-body > table > tbody > tr > th{
+
+  padding: 4px 2px;
+ }
+ .card-body {
+  color: #fff;
+ }
+ .imgU{
+  width: 100px;
+  float: left;
+  margin-right: 5px;
+}
+#erm{background-color: #fff;}
+  </style>
+
+</head>
+
+<body class="">
+  <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand -->
+      <a class="navbar-brand pt-0" href="index.php">
+        <img src="assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+      </a>
+      <!-- User -->
+      <ul class="nav align-items-center d-md-none">
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ni ni-bell-55"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg
+">
+              </span>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+            <div class=" dropdown-header noti-title">
+              <h6 class="text-overflow m-0">Welcome!</h6>
+            </div>
+            <a href="profile.php" class="dropdown-item">
+              <i class="ni ni-single-02"></i>
+              <span>My profile</span>
+            </a>
+            <a href="profile.php" class="dropdown-item">
+              <i class="ni ni-settings-gear-65"></i>
+              <span>Settings</span>
+            </a>
+
+            <div class="dropdown-divider"></div>
+            <a href="#!" class="dropdown-item">
+              <i class="ni ni-user-run"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Collapse header -->
+        <div class="navbar-collapse-header d-md-none">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="index.php">
+                <img src="assets/img/brand/blue.png">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Form -->
+        <form class="mt-4 mb-3 d-md-none" action="findAccounts.php?id=test">
+          <div class="input-group input-group-rounded input-group-merge">
+            <input type="text" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <span class="fa fa-search"></span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Navigation -->
+        <ul class="navbar-nav">
+        <li class="nav-item  active ">
+            <a class="nav-link active" href="index.php">
+              <i class="ni ni-tv-2 text-primary"></i> Dashboard
+            </a>
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#accsubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-bullet-list-67 text-red"></i> All Acconts </a>
+                    <ul class="collapse list-unstyled mx-3" id="accsubmenu" >
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="viewAllAccounts.php">
+                                <i class="fas fa-dot-circle"></i> All Accounts </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="viewActiveAccounts.php">
+                                <i class="fas fa-dot-circle"></i>active Accounts </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="allAccounts.php">
+                                <i class="fas fa-dot-circle"></i> new Accounts </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountTypes.php">
+                                <i class="fas fa-dot-circle"></i>Account Types </a>
+                            </a>
+                        </li>
+<!--                         <li class="nav-item">
+                            <a  class="nav-link" href="printAcc.php">
+                                <i class="fas fa-dot-circle"></i>Print Bill </a>
+                            </a>
+                        </li> -->
+                    </ul>
+
+          </li>
+
+
+
+
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users text-yellow"></i> Customers </a>
+                    <ul class="collapse list-unstyled mx-3" id="homesubmenu" >
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="admins.php">
+                                <i class="fas fa-dot-circle"></i> Admins </a>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="users.php">
+                                <i class="fas fa-dot-circle"></i> Customers </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#expSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-align-left-2 text-blue"></i> Expenses </a>
+                    <ul class="collapse list-unstyled mx-3" id="expSub" >
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="expenses.php">
+                                <i class="fas fa-dot-circle"></i>  expenses </a>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="expensesCat.php">
+                                <i class="fas fa-dot-circle"></i> expenses categories </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#paySub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-align-left-2 text-blue"></i> Order card </a>
+                    <ul class="collapse list-unstyled mx-3" id="paySub" >
+
+
+ 
+                        <li class="nav-item">
+                            <a  class="nav-link" href="cards.php">
+                                <i class="fas fa-dot-circle"></i> cards  </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#binSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-trash text-red"></i> Bin </a>
+                    <ul class="collapse list-unstyled mx-3" id="binSub" >
+
+
+
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountsBin.php">
+                                <i class="fas fa-dot-circle"></i> Accounts </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="accountTypesBin.php">
+                                <i class="fas fa-dot-circle"></i> Account Types </a>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="adminsBin.php">
+                                <i class="fas fa-dot-circle"></i> Admins  </a>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="usersBin.php">
+                                <i class="fas fa-dot-circle"></i> Customers </a>
+                            </a>
+                        </li>
+
+                    </ul>
+
+          </li>
+
+
+          <li class="nav-item  active ">
+            
+              <a class="nav-link" href="#settingsSub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="ni ni-settings-gear-65 text-blue"></i> Settings </a>
+                    <ul class="collapse list-unstyled mx-3" id="settingsSub" >
+
+
+                        <li class="nav-item">
+                            <a  class="nav-link" href="settings.php">
+                                <i class="fas fa-dot-circle"></i> Other </a>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+          </li>
+        </ul>
+
+<!-- sidenav end -->
+      </div>
+    </div>
+  </nav>
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.php">Dashboard</a>
+        <!-- Form -->
+
+
+        <form method="GET" action="findAccounts.php" class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+          <div class="form-group mb-0">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+              </div>
+          <input type="text" name="id" id="search" class="form-control " placeholder="Search..." autocomplete="off" required>  
+<div style="padding-left: 50px; position: absolute;width: 100%;top: 50px;">
+     <div class="" style="">
+        <div class="list-group rounded-0 " id="show-list">
+          <!-- Here autocomplete list will be display -->
+        </div>
+      </div>
+    
+</div>          
+      </div>
+          </div>
+        </form>
+
+
+
+        <!-- User -->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+
+<?php 
+if($accounts['image']==""){
+
+ ?>
+                <span class="avatar avatar-sm " style="width:45px;height: 45px; background-color: #fff;background:url('img/user-profile.png');background-size: cover;">
+                </span>
+
+  <?php
+}else{
+
+?>
+                <span class="avatar avatar-sm " style="width:45px;height: 45px; background-color: #fff;background:url('admin/upload/<?php echo $accounts['image'] ?>');background-size: cover;">
+                </span>
+<?php
+
+}
+
+?>
+
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weight-bold">
+
+<?php echo $accounts['username']; ?>
+
+                    
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Welcome!</h6>
+              </div>
+              <a href="./profile.php" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>My profile</span>
+              </a>
+              <a href="./myPrivilege.php" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>My Privileges</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="logout.php" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+
+
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+
+<?php   
+
+if ($rowC>0) {
+    // code...
+
+
+ ?>
+
+
+<br>
+
+
+                <span id="erm"></span>
+
+        <div class="header-body">
+
+          <!-- Card stats -->
+          <div class="bg-white p-2">
+            <?php 
+            if ($accountsAll['image']!='') {
+              ?>            <img class="img-thumbnail mr-2" src="admin/upload/<?php echo $accountsAll['image']; ?>" width="150px" style="float: left;">
+
+              <?php
+            }
+
+             ?>
+            <h2>Full Name : <?php echo $accountsAll['name']; ?></h2>
+            <h4>Full Name : <?php echo $accountsAll['idno']; ?></h4>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+
+
+
+<?php }else{
+
+echo "<h3>No record found</h3>";
+
+} ?>
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="container-fluid mt--7">
+
+<div id="accSec1"></div>
+
+
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              &copy; 2021 <!-- <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a> -->
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div  style="position:fixed;bottom: 10px; right:10px;">
+        <i class="fas fa-sync fa-spin" id="loadBottom"></i>
+        <span id="reloadBtn"></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core   -->
+         <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/js/settings.js"></script>
+  
+  <script src="./assets/js/settings.js"></script>
+  <script src="./assets/js/settings.js"></script>
+  <script src="./assets/js/settings.js"></script>
+  <script src="./assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!--   Optional JS   -->
+  <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  <!--   Argon JS   -->
+<!--   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+      });
+  </script> -->
+    <script>
+      $(document).ready(function() {
+        // Instead of button click, change this.
+
+      });
+
+    </script>
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   $(document).ready(function () {
+  // Send Search Text to the server
+  $("#search").keyup(function (event) {
+    let searchText = $(this).val();
+    if (searchText != "") {
+      $.ajax({
+        url: "ajax.php",
+        method: "post",
+        data: {
+          query: searchText,
+        },
+        success: function (response) {
+            if (response=='<p class="list-group-item border-0 rounded-0 bg-danger text-white ">No NIC</p>') {
+
+          $("#show-list").html(response);
+      }else{
+
+          $("#show-list").html(response);
+
+
+
+      }
+
+        },
+      });
+    } else {
+      $("#show-list").html("");
+    }
+  });
+  // Set searched text in input field on click of search button
+  $(document).on("click", ".a_list", function () {
+    $("#search").val($(this).text());
+    $("#search").focus();
+    $("#show-list").html("");
+  });
+});
+</script>
+<script type="text/javascript">
+  
+
+$(document).ready(function() {
+
+
+
+
+
+});
+
+</script>
+
+<script type="text/javascript" language="javascript" >
+
+
+
+$(document).ready(function(){
+
+
+
+     showAll();
+    function showAll(){
+
+    var keyword = "<?php echo $accountsAll['id'] ?>";
+
+  $.ajax({
+    method: 'POST',
+    url: 'accSec.php',
+    data:'id='+keyword,
+
+    success: function(response){
+      $('#accSec1').html(response);
+
+
+    }
+  });
+    }
+$('#loadBottom').addClass('text-success')
+function fetchdata(){
+
+    var keyword = "<?php echo date('Y-m-d H:i:s', time()); ?>";
+    var keyword2 = "<?php echo $accounts['id']; ?>";
+
+ $.ajax({
+  url: 'admin/x.php',
+  type: 'post',
+
+    data:{request:keyword,id:keyword2},
+      dataType:"json",
+  success: function(response){
+   // Perform operation on the return value
+   console.log(response);
+   if (response.rc>0) {
+   $('#loadBottom').addClass('text-success')
+   //location.reload();
+   showAll();
+    }else{
+   $('#loadBottom').addClass('text-success')
+   
+
+
+
+    }
+  }
+ });
+}
+
+$(document).ready(function(){
+ setInterval(fetchdata,3000);
+});
+
+$("#category1").blur(function(e) {
+  
+    var uname = $(this).val();
+    if (uname == "")
+    {
+        $("#msg1").html("");
+        $("#action1").attr("disabled", true);
+    }
+    else
+    {
+        $("#msg1").html("checking...");
+        $.ajax({
+            url: "ajaxfile.php",
+            data: {username: uname},
+            type: "POST",
+            dataType:"json",
+            success: function(data) {
+               console.log('data')
+                if(data.count > 0) {
+                  if (data.bal>=0) {
+                    $("#msg1").html(''+' <span>Full Name : '+data.un+'</span> <br> <span>Username : '+data.usn+'</span><span  class="badge badge-primary">Accounts :'+data.noAcc+' </span>&nbsp;&nbsp;Meter Board : '+data.meter+'<br>'+'<span  class="badge badge-success float-right"> Account Balance : '+data.bal+'</span>');
+                  }else{
+
+                    $("#msg1").html(''+' <span">Full Name : '+data.un+'</span><br>  <span>Username : '+data.usn+'</span> <span  class="badge badge-primary">Accounts :'+data.noAcc+' </span>&nbsp;&nbsp;Meter Board : '+data.meter+'<br>'+'<span   class="badge badge-danger float-right">Account Balance : LKR '+data.bal+'</span>');
+                  }
+                    $("#action1").attr("disabled", false);
+                  
+                } else {
+                    $("#msg1").html('<span class="text-danger">Account is not available!</span>');
+                    $("#action1").attr("disabled", true);
+                }
+                showAll()
+            }
+        });
+    }
+});
+
+
+
+
+  
+
+  
+
+
+
+
+  
+
+
+
+
+  $(document).on('click', '.delete', function(){
+    var user_id = $(this).attr("id");
+    if(confirm("Are you sure you want to delete this?"))
+    {
+      $.ajax({
+        url:"admin/delete.php",
+        method:"POST",
+        data:{user_id:user_id},
+        success:function(data)
+        {
+          alert(data);
+          showAll();
+        }
+      });
+    }
+    else
+    {
+      return false; 
+    }
+  });
+  
+  
+});
+</script>
+
+
+
+</body>
+
+</html>
