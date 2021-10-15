@@ -88,24 +88,6 @@ foreach($result as $row)
 
 $sub_array[] ="USER TYPE : ".$row['role']."<br>USERNAME : ".$row['username']."<br><span class='badge badge-pill badge-primary'>".$row['email']."</span><br>NIC : ".$row['idno']."<br>No of Accounts : ".countCon($row['id']);
 
-	// $sub_array[] = $row["first_name"];
-	// $sub_array[] = $row["last_name"];
-	//$sub_array[] = $row["status"];
-
-
-
-// 	if ($row['shippedSt']==0) {
-
-// 	$sub_array[] = '<button type="button" name="updateS" id="'.$row["id"].'" class="btn btn-danger btn-sm updateS">Not Yet</button>';
-// }else{
-
-// 	$sub_array[] = '<button type="button" name="updateS" id="'.$row["id"].'" class="btn btn-success btn-sm updateS">shipped</button>';
-
-// }
-
-
-
-
 
 	if ($row['activation_code']=="activated") {
 		# code...
@@ -116,21 +98,11 @@ $sub_array[] ="USER TYPE : ".$row['role']."<br>USERNAME : ".$row['username']."<b
 		$sub_array[] = '<span class="badge badge-pill badge-danger">  Not Activated</span>';
 	}
 
-	// if ($row['activation_code']=="activated") {
-	// $sub_array[] =  '<button type="button"   class="btn btn-success btn-sm update">Activated</button>';
-
-	// }else{
 
 
 	$sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-warning btn-sm update">Update</button>';
 
 
-
-
-
-
-	// }
-	
 
 if ($row['activation_code']=='activated') {
 	# code...

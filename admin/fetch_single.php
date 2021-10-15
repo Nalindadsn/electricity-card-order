@@ -15,7 +15,6 @@ if(isset($_POST["user_id"]))
 	{
 		$output["username"] = $row["username"];
 		$output["salutation"] = $row["salutation"];
-		$output["first_name"] = $row["first_name"];
 		$output["last_name"] = $row["idno"];
 		$output["status"] = $row["activation_code"];
 		if($row["image"] != '')
