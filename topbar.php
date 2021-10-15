@@ -67,10 +67,7 @@ if($accounts['image']==""){
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
-              <a href="./myPrivilege.php" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>My Privileges</span>
-              </a>
+
               <div class="dropdown-divider"></div>
               <a href="logout.php" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
