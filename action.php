@@ -25,7 +25,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       # code...
     $output .= '
 
-     <li class="list-group-item py-1 text-left">'.$row["id"].'
+     <li class="list-group-item py-1 text-left">'.$row["idno"].'
 
 <a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
      </li>
@@ -36,7 +36,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
 
     $output .= '
 
-     <li class="list-group-item bg-danger text-white py-1 text-left">'.$row["id"].'
+     <li class="list-group-item bg-danger text-white py-1 text-left">'.$row["idno"].'
 <a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
 
      </li>
@@ -75,7 +75,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       # code...
     $output .= '
 
-     <li class="list-group-item  p-0 px-1 mx-1 "><a  class="btcon" id="'.$row["id"].'">'.$row["id"].'</a>
+     <li class="list-group-item  p-0 px-1 mx-1 "><a  class="btcon" id="'.$row["id"].'">'.$row["idno"].'</a>
 
      </li>
 
@@ -85,7 +85,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
 
     $output .= '
 
-     <li class="list-group-item  text-danger p-0 px-1 mx-1"><a  class="btcon" id="'.$row["id"].'">'.$row["id"].'</a>
+     <li class="list-group-item  text-danger p-0 px-1 mx-1"><a  class="btcon" id="'.$row["id"].'">'.$row["idno"].'</a>
 
      </li>
 
