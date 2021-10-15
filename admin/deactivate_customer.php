@@ -19,7 +19,7 @@ if(isset($_POST["user_id"]))
 		);
 		if(!empty($result))
 		{
-			echo 'Activated';
+			echo 'Deactivated';
 		}
 
 }

@@ -28,10 +28,7 @@ $query .= 'SELECT * FROM accounts WHERE (role="Admin" AND activation_code != "ac
 if(isset($_POST["search"]["value"]))
 {
 	$query .= 'AND 
-	(first_name LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR username LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR last_name LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR idno LIKE "%'.$_POST["search"]["value"].'%" ';
+	(idno LIKE "%'.$_POST["search"]["value"].'%" ';
 	$query .= 'OR status LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 if(isset($_POST["order"]))

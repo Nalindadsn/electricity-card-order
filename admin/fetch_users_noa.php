@@ -28,10 +28,7 @@ $query .= 'SELECT * FROM accounts WHERE (role="Member" AND activation_code != "a
 if(isset($_POST["search"]["value"]))
 {
 	$query .= 'AND 
-	(first_name LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR username LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR last_name LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR idno LIKE "%'.$_POST["search"]["value"].'%" ';
+	(idno LIKE "%'.$_POST["search"]["value"].'%" ';
 	$query .= 'OR status LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 if(isset($_POST["order"]))
@@ -116,7 +113,6 @@ $sub_array[] ="USER TYPE : ".$row['role']."<br>USERNAME : ".$row['username']."<b
 
 
 
-if ( pr($prArray[81])==1) {
 
 	if ($row['activation_code']=="activated") {
 		# code...
@@ -126,19 +122,6 @@ if ( pr($prArray[81])==1) {
 		# code...
 		$sub_array[] = '<span class="badge badge-pill badge-danger">  Not Activated</span>'.'<br><a href="userProfile.php?id='.$row['id'].'">view profile</a>';
 	}
-
-}else{
-
-	if ($row['activation_code']=="activated") {
-		# code...
-		$sub_array[] = '<span class="badge badge-pill badge-success">Activated</span>'.'';
-	}
-	else {
-		# code...
-		$sub_array[] = '<span class="badge badge-pill badge-danger">  Not Activated</span>'.'';
-	}
-
-}
 
 
 
@@ -157,13 +140,9 @@ if ( pr($prArray[81])==1) {
 	
 
 
-if ( pr($prArray[82])==1) {
 	$sub_array[] = '<button type="button" name="delete" id="'.$row["id"].'" class="btn btn-danger btn-sm delete">Activate</button>';
 
-}else{
 
-	$sub_array[] = '<button type="button"  class="btn btn-danger btn-sm " disabled>Activate</button>';
-}
 
 
 	$data[] = $sub_array;
