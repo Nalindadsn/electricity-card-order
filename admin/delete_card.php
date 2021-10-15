@@ -7,7 +7,7 @@ if(isset($_POST["user_id"]))
 
 
 		$statement = $pdo->prepare(
-			"DELETE FROM expenses
+			"DELETE FROM card
 			WHERE id = :id
 			"
 		);

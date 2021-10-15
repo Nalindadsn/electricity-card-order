@@ -499,6 +499,7 @@ if($accounts['image']==""){
               <th width="10%">Reason</th>
               <th width="10%">Created at</th>
               <th width="10%">Update</th>
+              <th width="10%">Delete</th>
             </tr>
           </thead>
         </table>

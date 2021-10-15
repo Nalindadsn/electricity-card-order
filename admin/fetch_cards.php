@@ -81,7 +81,6 @@ if (date('Y-m-d') == date('Y-m-d', strtotime($row["created_at"]))) {
 
 // 	if ($row['shippedSt']==0) {
 
-// 	$sub_array[] = '<button type="button" name="updateS" id="'.$row["id"].'" class="btn btn-danger btn-sm updateS">Not Yet</button>';
 // }else{
 
 // 	$sub_array[] = '<button type="button" name="updateS" id="'.$row["id"].'" class="btn btn-success btn-sm updateS">shipped</button>';
@@ -93,6 +92,7 @@ if (date('Y-m-d') == date('Y-m-d', strtotime($row["created_at"]))) {
 
 	$sub_array[] = '<button type="button" name="update" id="'.$row["id"].'" class="btn btn-warning btn-sm update">Update</button>';
 
+ 	$sub_array[] = '<button type="button" name="delete" id="'.$row["id"].'" class="btn btn-danger btn-sm delete">Delete</button>';
 
 
 
