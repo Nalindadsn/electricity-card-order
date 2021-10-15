@@ -27,7 +27,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
 
      <li class="list-group-item py-1 text-left">'.$row["id"].'
 
-<a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
+<a  id="'.$row["id"].'" class="float-right  update1"><i class=""></i></a>
      </li>
 
     ';
@@ -37,7 +37,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
     $output .= '
 
      <li class="list-group-item bg-danger text-white py-1 text-left">'.$row["id"].'
-<a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
+<a  id="'.$row["id"].'" class="float-right  update1"><i class=""></i></a>
 
      </li>
 
