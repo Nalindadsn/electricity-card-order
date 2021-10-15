@@ -25,7 +25,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       # code...
     $output .= '
 
-     <li class="list-group-item py-1 text-left">'.$row["idno"].'
+     <li class="list-group-item py-1 text-left">'.$row["id"].'
 
 <a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
      </li>
@@ -36,7 +36,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
 
     $output .= '
 
-     <li class="list-group-item bg-danger text-white py-1 text-left">'.$row["idno"].'
+     <li class="list-group-item bg-danger text-white py-1 text-left">'.$row["id"].'
 <a  id="'.$row["id"].'" class="float-right  update1"><i class="fas fa-edit"></i></a>
 
      </li>
@@ -75,7 +75,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       # code...
     $output .= '
 
-     <li class="list-group-item  p-0 px-1 mx-1 "><a  class="btcon" id="'.$row["id"].'">'.$row["idno"].'</a>
+     <li class="list-group-item  p-0 px-1 mx-1 "><a  class="btcon" id="'.$row["id"].'">'.$row["id"].'</a>
 
      </li>
 
@@ -85,7 +85,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
 
     $output .= '
 
-     <li class="list-group-item  text-danger p-0 px-1 mx-1"><a  class="btcon" id="'.$row["id"].'">'.$row["idno"].'</a>
+     <li class="list-group-item  text-danger p-0 px-1 mx-1"><a  class="btcon" id="'.$row["id"].'">'.$row["id"].'</a>
 
      </li>
 
@@ -109,12 +109,12 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
  if($_POST["action"] == "Create")
  {
   $statement = $pdo->prepare("
-   INSERT INTO account_con (card_type, no_beneficiaries,user_id,status) 
-   VALUES (:card_type, :no_beneficiaries,:user_id,:status)
+   INSERT INTO account_con (payment_type, no_beneficiaries,user_id,status) 
+   VALUES (:payment_type, :no_beneficiaries,:user_id,:status)
   ");
   $result = $statement->execute(
    array(
-    ':card_type' => $_POST["firstName"],
+    ':payment_type' => $_POST["firstName"],
     ':no_beneficiaries' => $_POST["lastName"],
     ':status' => $_POST["status"],
     ':user_id' => $_POST["u_id"]
@@ -139,7 +139,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
   $result = $statement->fetchAll();
   foreach($result as $row)
   {
-   $output["first_name"] = $row["card_type"];
+   $output["first_name"] = $row["payment_type"];
    $output["last_name"] = $row["no_beneficiaries"];
    $output["status"] = $row["status"];
   }
@@ -150,13 +150,13 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
  {
   $statement = $pdo->prepare(
    "UPDATE account_con 
-   SET card_type = :card_type, no_beneficiaries = :no_beneficiaries , status = :status
+   SET payment_type = :payment_type, no_beneficiaries = :no_beneficiaries , status = :status
    WHERE id = :id
    "
   );
   $result = $statement->execute(
    array(
-    ':card_type' => $_POST["firstName"],
+    ':payment_type' => $_POST["firstName"],
     ':no_beneficiaries' => $_POST["lastName"],
     ':status' => $_POST["status"],
     ':id'   => $_POST["id"]
